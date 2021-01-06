@@ -59,7 +59,7 @@
     "@types/node": "^14.6.4",
     "coveralls": "^3.1.0",
     "jest": "^26.4.2",
-    "microbundle": "^0.12.3",
+    "microbundle": "^0.13.0",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.1.1",
     "terser": "^5.3.0",
