@@ -7,10 +7,9 @@
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [],
   "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*.(j|t)s"
+    "<rootDir>/src/main/**/*.ts"
   ],
   "testMatch": [
-    "<rootDir>/src/test/js/**/*.js",
     "<rootDir>/src/test/ts/**/*.ts"
   ],
   "testPathIgnorePatterns": [
@@ -27,7 +26,7 @@
   ],
   "globals": {
     "ts-jest": {
-      "tsConfig": "<rootDir>/tsconfig.test.json"
+      "tsconfig": "<rootDir>/tsconfig.test.json"
     }
   }
 
