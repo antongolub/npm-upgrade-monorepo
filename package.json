@@ -4,6 +4,9 @@
   "private": false,
   "description": "Blank TS repo",
   "source": "src/main/ts/index.ts",
+  "bin": {
+    "npm-upgrade-monorepo": "./target/es5/cli.js"
+  },
   "main": "target/bundle/npm-upgrade-monorepo.js",
   "module": "target/bundle/npm-upgrade-monorepo.mjs",
   "unpkg": "target/bundle/npm-upgrade-monorepo.umd.js",
@@ -37,7 +40,10 @@
     "postupdate": "yarn && yarn test:deps && yarn build && yarn test"
   },
   "dependencies": {
-    "tslib": "^2.1.0"
+    "globby": "^11.0.2",
+    "npm-upgrade": "^2.0.4",
+    "tslib": "^2.1.0",
+    "minimist": "^1.2.5"
   },
   "devDependencies": {
     "@qiwi/libdefkit": "^2.1.6",
@@ -66,6 +72,7 @@
     "url": "https://github.com/antongolub/npm-upgrade-monorepo.git"
   },
   "keywords": [
+    "npm-upgrade",
     "npm-upgrade-monorepo"
   ],
   "files": [
