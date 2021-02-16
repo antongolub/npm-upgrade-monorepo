@@ -120,9 +120,9 @@ jobs:
       - name: Yarn install
         run: yarn
 
-      - name: Intergarion test
+      - name: Unit test
         if: matrix.node-version != '14' || matrix.os != 'ubuntu-20.04'
-        run: yarn test:integration
+        run: yarn test:unit
 
       # Run all tests for Ubuntu + NodeJS v14 only
       - name: Full test suite
