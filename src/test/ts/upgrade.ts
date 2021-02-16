@@ -1,4 +1,5 @@
 import cp from 'child_process'
+import normalize from 'normalize-path'
 import path from 'path'
 
 import {
@@ -9,6 +10,7 @@ import {
 } from '../../main/ts'
 import { formatFlags,parseFlags } from './helpers/flags'
 
+const cwd = process.cwd()
 const fixtures = path.resolve(__dirname, '../fixtures')
 
 describe('extractWorkspacesFromPkg()', () => {
@@ -26,9 +28,10 @@ describe('extractWorkspacesFromPkg()', () => {
 
 describe('getWorkspaces()', () => {
   it('returns ws absolute paths for monorepo', () => {
+    // https://github.com/sindresorhus/globby/issues/130
     expect(getWorkspaces(path.resolve(fixtures, 'regular-monorepo'))).toEqual(
       ['a', 'b'].map((p) =>
-        path.resolve(fixtures, 'regular-monorepo', 'packages', p),
+        normalize(path.resolve(fixtures, 'regular-monorepo', 'packages', p)),
       ),
     )
   })
@@ -38,12 +41,11 @@ describe('getWorkspaces()', () => {
   })
 
   it('uses process.cwd as default', () => {
-    expect(getWorkspaces(process.cwd())).toEqual([])
+    expect(getWorkspaces(cwd)).toEqual([])
   })
 })
 
 describe('exec', () => {
-  const cwd = process.cwd()
   const argv = process.argv.slice(2)
   const cmd = 'npm-upgrade'
   const stdio = ['inherit', 'inherit', 'inherit']
@@ -69,7 +71,7 @@ describe('exec', () => {
       require('../../main/ts/cli')
 
       expect(fakeCpSync).toHaveBeenCalledWith('npm-upgrade', argv, {
-        cwd,
+        cwd: process.cwd(),
         stdio,
       })
     })
