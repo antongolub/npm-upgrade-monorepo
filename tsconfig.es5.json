@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es5",
     "outDir": "target/es5",
-    "skipLibCheck": true
+    "module": "CommonJS"
   },
   "include": ["src/main/**/*.ts"]
 }

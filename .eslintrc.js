@@ -4,4 +4,7 @@ module.exports = {
         'prettier',
         'prettier/@typescript-eslint',
     ],
+    rules: {
+        'sonarjs/no-duplicate-string': 'off'
+    }
 };
