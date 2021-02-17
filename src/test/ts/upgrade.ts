@@ -10,7 +10,7 @@ import {
 } from '../../main/ts'
 import { formatFlags,parseFlags } from './helpers/flags'
 
-const cwd = process.cwd()
+const cwd = normalize(process.cwd())
 const fixtures = path.resolve(__dirname, '../fixtures')
 
 describe('extractWorkspacesFromPkg()', () => {
@@ -71,7 +71,7 @@ describe('exec', () => {
       require('../../main/ts/cli')
 
       expect(fakeCpSync).toHaveBeenCalledWith('npm-upgrade', argv, {
-        cwd: process.cwd(),
+        cwd,
         stdio,
       })
     })

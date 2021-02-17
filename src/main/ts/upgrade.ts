@@ -1,11 +1,12 @@
 import cp, { StdioOptions } from 'child_process'
 import fs from 'fs'
 import globby, { GlobbyOptions } from 'globby'
+import normalize from 'normalize-path'
 import path from 'path'
 
 export const invoke = (cwd: string, args: string[], cmd: string): string | undefined => {
   const stdio: StdioOptions = ['inherit', 'inherit', 'inherit']
-  const result = cp.spawnSync(cmd, args, { cwd, stdio })
+  const result = cp.spawnSync(cmd, args, { cwd: normalize(cwd), stdio })
 
   if (result.error || result.status || result.signal !== null) {
     throw result
