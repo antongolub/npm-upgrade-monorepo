@@ -87,7 +87,7 @@ describe('exec', () => {
 
       cwds.forEach((_cwd) =>
         expect(fakeCpSync).toHaveBeenCalledWith('npm-upgrade', argv, {
-          cwd: _cwd,
+          cwd: normalize(_cwd),
           stdio,
         }),
       )
