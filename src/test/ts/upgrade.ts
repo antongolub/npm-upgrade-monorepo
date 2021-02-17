@@ -82,12 +82,12 @@ describe('exec', () => {
       upgrade(path.resolve(fixtures, 'regular-monorepo'), {})
 
       const cwds = ['a', 'b', '..'].map((p) =>
-        path.resolve(fixtures, 'regular-monorepo', 'packages', p),
+        normalize(path.resolve(fixtures, 'regular-monorepo', 'packages', p)),
       )
 
       cwds.forEach((_cwd) =>
         expect(fakeCpSync).toHaveBeenCalledWith('npm-upgrade', argv, {
-          cwd: normalize(_cwd),
+          cwd: _cwd,
           stdio,
         }),
       )
@@ -119,6 +119,8 @@ describe('exec', () => {
       ).toThrow()
     })
   })
+
+  afterEach(jest.clearAllMocks)
 
   afterAll(jest.restoreAllMocks)
 })
