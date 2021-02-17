@@ -5,6 +5,7 @@ module.exports = {
         'prettier/@typescript-eslint',
     ],
     rules: {
-        'sonarjs/no-duplicate-string': 'off'
+        'sonarjs/no-duplicate-string': 'off',
+        'sonarjs/no-identical-functions': 'off'
     }
 };
