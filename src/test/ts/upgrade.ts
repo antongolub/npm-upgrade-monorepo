@@ -8,7 +8,7 @@ import {
   invoke,
   upgrade,
 } from '../../main/ts'
-import { formatFlags,parseFlags } from './helpers/flags'
+import { formatFlags, parseFlags } from './helpers/flags'
 
 const cwd = normalize(process.cwd())
 const fixtures = path.resolve(__dirname, '../fixtures')
@@ -91,6 +91,23 @@ describe('exec', () => {
           stdio,
         }),
       )
+      expect(fakeCpSync).toBeCalledTimes(3)
+    })
+
+    it('handles -w/worspaces flag', () => {
+      upgrade(path.resolve(fixtures, 'regular-monorepo'), { w: 'packages/b' })
+
+      const cwds = ['b', '..'].map((p) =>
+        normalize(path.resolve(fixtures, 'regular-monorepo', 'packages', p)),
+      )
+
+      cwds.forEach((_cwd) =>
+        expect(fakeCpSync).toHaveBeenCalledWith('npm-upgrade', argv, {
+          cwd: _cwd,
+          stdio,
+        }),
+      )
+      expect(fakeCpSync).toBeCalledTimes(2)
     })
   })
 
