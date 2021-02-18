@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.0...v1.1.1) (2021-02-18)
+
+
+### Bug Fixes
+
+* **package:** add missed buildstamp.json ([d8dcc60](https://github.com/antongolub/npm-upgrade-monorepo/commit/d8dcc60bf08783f5a942e6a12d7eaf06a807a5fa))
+
 # [1.1.0](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.0.0...v1.1.0) (2021-02-17)
 
 
