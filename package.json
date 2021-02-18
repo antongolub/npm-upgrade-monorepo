@@ -82,7 +82,8 @@
     "CHANGELOG.md",
     "target",
     "typings",
-    "flow-typed"
+    "flow-typed",
+    "buildstamp.json"
   ],
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
