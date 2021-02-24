@@ -20,7 +20,7 @@ npm-upgrage-monorepo [...args]
 ```
 
 ### --workspaces / -w
-Additional param lets to override `package.json` `workspaces` field value.
+Additional param to override `package.json` `workspaces` field value.
 ```shell
 npm-upgrage-monorepo -w packages/*
 npm-upgrage-monorepo -w scope1/a,scope2/b
