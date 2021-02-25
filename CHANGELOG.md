@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.1...v1.1.2) (2021-02-25)
+
+
+### Bug Fixes
+
+* **package:** up deps, fix vuls ([cde9d55](https://github.com/antongolub/npm-upgrade-monorepo/commit/cde9d553310049791ed69d02bb03029dc7a89fa1))
+
 ## [1.1.1](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.0...v1.1.1) (2021-02-18)
 
 
