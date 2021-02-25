@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.2...v1.1.3) (2021-02-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency npm-upgrade to v3 ([c81bbd6](https://github.com/antongolub/npm-upgrade-monorepo/commit/c81bbd66d856db09fdc57407c640b4706a075dc1))
+
 ## [1.1.2](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.1...v1.1.2) (2021-02-25)
 
 
