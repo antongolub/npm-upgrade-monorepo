@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "globby": "^11.0.2",
-    "npm-upgrade": "^2.0.4",
+    "npm-upgrade": "^3.0.0",
     "tslib": "^2.1.0",
     "minimist": "^1.2.5",
     "normalize-path": "^3.0.0",
