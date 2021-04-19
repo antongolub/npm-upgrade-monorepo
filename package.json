@@ -50,7 +50,7 @@
   "devDependencies": {
     "@qiwi/libdefkit": "^2.1.6",
     "@qiwi/npm-run-all": "^4.1.6",
-    "@swissquote/crafty-preset-jest": "^1.13.7",
+    "@swissquote/crafty-preset-jest": "^1.14.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
     "coveralls": "^3.1.0",
