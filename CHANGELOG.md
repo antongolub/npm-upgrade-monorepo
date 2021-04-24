@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.3...v1.1.4) (2021-04-24)
+
+
+### Performance Improvements
+
+* **pkg:** up deps ([6e1bb4d](https://github.com/antongolub/npm-upgrade-monorepo/commit/6e1bb4d7f36ef3a44606cd651b08a31c8f8e403a))
+
 ## [1.1.3](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.2...v1.1.3) (2021-02-25)
 
 
