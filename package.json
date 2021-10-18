@@ -59,7 +59,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-qiwi": "^1.13.0",
     "jest": "^27.0.1",
-    "microbundle": "^0.13.0",
+    "microbundle": "^0.14.0",
     "mkdirp": "^1.0.4",
     "prettier": "^2.3.0",
     "prettier-config-qiwi": "^1.4.1",
