@@ -34,8 +34,6 @@
     "build:bundle": "microbundle --tsconfig tsconfig.es5.json build src/main/ts/index.ts -o target/bundle",
     "build:libdef": "libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
     "docs": "typedoc --options ./typedoc.json ./src/main/ts",
-    "coveralls:push": "cat ./coverage/lcov.info | coveralls || exit 0",
-    "push:report": "yarn coveralls:push",
     "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
     "postupdate": "yarn && yarn test:deps && yarn build && yarn test"
   },
@@ -53,7 +51,6 @@
     "@swissquote/crafty-preset-jest": "^1.17.2",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.8",
-    "coveralls": "^3.1.1",
     "cpy-cli": "^3.1.1",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
