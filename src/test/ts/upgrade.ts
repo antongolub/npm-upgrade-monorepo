@@ -6,6 +6,7 @@ import {
   extractWorkspacesFromPkg,
   getWorkspaces,
   invoke,
+  TPkgJson,
   upgrade,
 } from '../../main/ts'
 import { formatFlags, parseFlags } from './helpers/flags'
@@ -14,7 +15,7 @@ const cwd = normalize(process.cwd())
 const fixtures = path.resolve(__dirname, '../fixtures')
 
 describe('extractWorkspacesFromPkg()', () => {
-  const cases = [
+  const cases: [TPkgJson, string[]][] = [
     [{}, []],
     [{ workspaces: undefined }, []],
     [{ workspaces: ['foo'] }, ['foo']],
