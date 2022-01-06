@@ -10,20 +10,20 @@ Apply [npm-upgrade](https://github.com/th0r/npm-upgrade) to monorepos. The wrapp
 
 ## Install
 ```shell
-npm i -g npm-upgrage-monorepo
+npm i -g npm-upgrade-monorepo
 ```
 
 ## Usage
 API inherits `npm-upgrade` [CLI contract](https://github.com/th0r/npm-upgrade#usage). 
 ```shell
-npm-upgrage-monorepo [...args]
+npm-upgrade-monorepo [...args]
 ```
 
 ### --workspaces / -w
 Additional param to override `package.json` `workspaces` field value.
 ```shell
-npm-upgrage-monorepo -w packages/*
-npm-upgrage-monorepo -w scope1/a,scope2/b
+npm-upgrade-monorepo -w packages/*
+npm-upgrade-monorepo -w scope1/a,scope2/b
 ```
 
 ## Alternatives
