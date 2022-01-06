@@ -38,7 +38,7 @@
     "postupdate": "yarn && yarn test:deps && yarn build && yarn test"
   },
   "dependencies": {
-    "globby": "^11.0.3",
+    "globby": "^12.0.0",
     "npm-upgrade": "^3.0.0",
     "tslib": "^2.3.1",
     "minimist": "^1.2.5",
