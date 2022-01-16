@@ -1,6 +1,6 @@
 import cp, { StdioOptions } from 'child_process'
+import { sync as glob } from 'fast-glob'
 import fs from 'fs'
-import globby, { GlobbyOptions } from 'globby'
 import normalize from 'normalize-path'
 import path from 'path'
 
@@ -31,11 +31,11 @@ export const resolveWorkspaces = (
   cwd: string,
   patterns: string[],
 ): string[] => {
-  const entries = globby.sync(patterns, {
+  const entries = glob(patterns, {
     cwd,
-    onlyFiles: false,
+    onlyDirectories: true,
     absolute: true,
-  } as GlobbyOptions)
+  })
 
   return Object.keys(
     entries.reduce<Record<string, boolean>>((m, entry) => {
