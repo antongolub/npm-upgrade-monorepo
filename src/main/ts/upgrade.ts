@@ -83,8 +83,12 @@ export const upgrade = (cwd: string, flags: TFlags): void => {
   const workspaces = [cwd, ...getWorkspaces(cwd, flags.w || flags.workspaces)]
 
   workspaces.forEach((ws) => {
-    console.log(`invoke npm-upgrade for ${ws}`)
+    if (fs.existsSync(path.resolve(ws, 'package.json'))) {
+      console.log(`invoke npm-upgrade for ${ws}`)
 
-    invoke(ws, process.argv.slice(2), 'npm-upgrade')
+      invoke(ws, process.argv.slice(2), 'npm-upgrade')
+    } else {
+      console.warn(`${ws} package.json not found`)
+    }
   })
 }
