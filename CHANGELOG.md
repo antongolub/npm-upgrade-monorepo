@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.6...v1.1.7) (2022-01-16)
+
+
+### Bug Fixes
+
+* don't fall if ws package is empty ([2f5cfde](https://github.com/antongolub/npm-upgrade-monorepo/commit/2f5cfde722e63d0993ffc0e97bdc92e0370186ba)), closes [#34](https://github.com/antongolub/npm-upgrade-monorepo/issues/34)
+
 ## [1.1.6](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.5...v1.1.6) (2022-01-06)
 
 
