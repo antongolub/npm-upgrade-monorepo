@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.8...v1.2.0) (2022-04-21)
+
+
+### Features
+
+* add nodejs v18 support ([a67b85f](https://github.com/antongolub/npm-upgrade-monorepo/commit/a67b85fe33bcfa11db68169114dd4429d34260c0))
+
 ## [1.1.8](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.7...v1.1.8) (2022-04-21)
 
 
