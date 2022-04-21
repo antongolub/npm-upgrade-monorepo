@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.2...v1.2.3) (2022-04-21)
+
+
+### Bug Fixes
+
+* use npx to refer npm-upgrade bin ([70b7fcc](https://github.com/antongolub/npm-upgrade-monorepo/commit/70b7fcc76be1cbceee71c6edcb1c2987f43bb65d))
+
 ## [1.2.2](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.1...v1.2.2) (2022-04-21)
 
 
