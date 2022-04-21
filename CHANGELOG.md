@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.0...v1.2.1) (2022-04-21)
+
+
+### Bug Fixes
+
+* **pkg:** add esm entry point ([d0c661b](https://github.com/antongolub/npm-upgrade-monorepo/commit/d0c661b98bdce6dfe0863754e48803ac65b24278))
+
 # [1.2.0](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.1.8...v1.2.0) (2022-04-21)
 
 
