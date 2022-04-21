@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.1...v1.2.2) (2022-04-21)
+
+
+### Bug Fixes
+
+* fix bin entry point ([3b1d6d4](https://github.com/antongolub/npm-upgrade-monorepo/commit/3b1d6d4c509318cfc081ee71fe368297920b5f87))
+
 ## [1.2.1](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.0...v1.2.1) (2022-04-21)
 
 
