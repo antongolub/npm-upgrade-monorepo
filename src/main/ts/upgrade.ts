@@ -1,8 +1,8 @@
-import cp, { StdioOptions } from 'child_process'
 import { sync as glob } from 'fast-glob'
-import fs from 'fs'
+import cp, { StdioOptions } from 'node:child_process'
+import fs from 'node:fs'
+import path from 'node:path'
 import normalize from 'normalize-path'
-import path from 'path'
 
 export const invoke = (
   cwd: string,
