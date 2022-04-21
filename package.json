@@ -7,6 +7,9 @@
   "bin": {
     "npm-upgrade-monorepo": "./target/es5/cli.js"
   },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || ^16 || ^18"
+  },
   "main": "target/bundle/npm-upgrade-monorepo.js",
   "module": "target/bundle/npm-upgrade-monorepo.mjs",
   "unpkg": "target/bundle/npm-upgrade-monorepo.umd.js",
