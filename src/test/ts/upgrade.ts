@@ -5,7 +5,7 @@ import path from 'path'
 import {
   extractWorkspacesFromPkg,
   getWorkspaces,
-  invoke,
+  invokeUpdate,
   TPkgJson,
   upgrade,
 } from '../../main/ts'
@@ -48,7 +48,7 @@ describe('getWorkspaces()', () => {
 
 describe('exec', () => {
   const argv = process.argv.slice(2)
-  const cmd = 'npm-upgrade'
+  const cmd = 'npx'
   const stdio = ['inherit', 'inherit', 'inherit']
   const fakeCpSync = jest
     .spyOn(cp, 'spawnSync')
@@ -71,7 +71,7 @@ describe('exec', () => {
     it('applies upgrade to cwd', () => {
       require('../../main/ts/cli')
 
-      expect(fakeCpSync).toHaveBeenCalledWith('npm-upgrade', argv, {
+      expect(fakeCpSync).toHaveBeenCalledWith('npx', ['npm-upgrade', ...argv], {
         cwd,
         stdio,
       })
@@ -87,7 +87,7 @@ describe('exec', () => {
       )
 
       cwds.forEach((_cwd) =>
-        expect(fakeCpSync).toHaveBeenCalledWith('npm-upgrade', argv, {
+        expect(fakeCpSync).toHaveBeenCalledWith('npx', ['npm-upgrade', ...argv], {
           cwd: _cwd,
           stdio,
         }),
@@ -103,7 +103,7 @@ describe('exec', () => {
       )
 
       cwds.forEach((_cwd) =>
-        expect(fakeCpSync).toHaveBeenCalledWith('npm-upgrade', argv, {
+        expect(fakeCpSync).toHaveBeenCalledWith('npx', ['npm-upgrade', ...argv], {
           cwd: _cwd,
           stdio,
         }),
@@ -114,11 +114,11 @@ describe('exec', () => {
 
   describe('invoke()', () => {
     it('runs `npm-upgrade` cp with proper args', () => {
-      expect(invoke(cwd, argv, cmd)).toBe('some result')
-      expect(fakeCpSync).toHaveBeenCalledWith(cmd, argv, { cwd, stdio })
+      expect(invokeUpdate(cwd, ['foo'])).toBe('some result')
+      expect(fakeCpSync).toHaveBeenCalledWith(cmd, ['npm-upgrade', 'foo'], { cwd, stdio })
 
-      expect(invoke('foo', ['bar'], 'baz')).toBe('some result')
-      expect(fakeCpSync).toHaveBeenCalledWith('baz', ['bar'], {
+      expect(invokeUpdate('foo', ['baz'])).toBe('some result')
+      expect(fakeCpSync).toHaveBeenCalledWith('npx', ['npm-upgrade', 'baz'], {
         cwd: 'foo',
         stdio,
       })
@@ -126,13 +126,12 @@ describe('exec', () => {
 
     it('throws internal errors', () => {
       expect(() =>
-        invoke(
+        invokeUpdate(
           cwd,
           formatFlags({
             stderr: 'some error',
             status: '1',
           }),
-          cmd,
         ),
       ).toThrow()
     })

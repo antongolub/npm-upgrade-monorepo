@@ -2,15 +2,17 @@ import { sync as glob } from 'fast-glob'
 import cp, { StdioOptions } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
+import process from 'node:process'
 import normalize from 'normalize-path'
 
-export const invoke = (
+export const invokeUpdate = (
   cwd: string,
   args: string[],
-  cmd: string,
 ): string | undefined => {
+  const isWin = ['win32' || 'win64'].includes(process.platform)
   const stdio: StdioOptions = ['inherit', 'inherit', 'inherit']
-  const result = cp.spawnSync(cmd, args, { cwd: normalize(cwd), stdio })
+  const cmd = isWin ? 'npx.cmd' : 'npx'
+  const result = cp.spawnSync(cmd, ['npm-upgrade', ...args], { cwd: normalize(cwd), stdio })
 
   if (result.error || result.status || result.signal !== null) {
     throw result
@@ -86,7 +88,7 @@ export const upgrade = (cwd: string, flags: TFlags): void => {
     if (fs.existsSync(path.resolve(ws, 'package.json'))) {
       console.log(`invoke npm-upgrade for ${ws}`)
 
-      invoke(ws, process.argv.slice(2), 'npm-upgrade')
+      invokeUpdate(ws, process.argv.slice(2))
     } else {
       console.warn(`${ws} package.json not found`)
     }
