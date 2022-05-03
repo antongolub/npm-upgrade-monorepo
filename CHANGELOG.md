@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.3...v1.2.4) (2022-05-03)
+
+
+### Bug Fixes
+
+* up tslib to v2.4.0 ([d606502](https://github.com/antongolub/npm-upgrade-monorepo/commit/d606502be304f8207bd2f6b0247b2892a994eee2))
+
 ## [1.2.3](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.2...v1.2.3) (2022-04-21)
 
 
