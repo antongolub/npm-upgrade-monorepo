@@ -48,7 +48,8 @@ describe('getWorkspaces()', () => {
 
 describe('exec', () => {
   const argv = process.argv.slice(2)
-  const cmd = 'npx'
+  const platform = process.platform
+  const cmd = platform === 'win32' ? 'npx.cmd' : 'npx'
   const stdio = ['inherit', 'inherit', 'inherit']
   const fakeCpSync = jest
     .spyOn(cp, 'spawnSync')
@@ -71,7 +72,7 @@ describe('exec', () => {
     it('applies upgrade to cwd', () => {
       require('../../main/ts/cli')
 
-      expect(fakeCpSync).toHaveBeenCalledWith('npx', ['npm-upgrade', ...argv], {
+      expect(fakeCpSync).toHaveBeenCalledWith(cmd, ['npm-upgrade', ...argv], {
         cwd,
         stdio,
       })
@@ -87,7 +88,7 @@ describe('exec', () => {
       )
 
       cwds.forEach((_cwd) =>
-        expect(fakeCpSync).toHaveBeenCalledWith('npx', ['npm-upgrade', ...argv], {
+        expect(fakeCpSync).toHaveBeenCalledWith(cmd, ['npm-upgrade', ...argv], {
           cwd: _cwd,
           stdio,
         }),
@@ -103,7 +104,7 @@ describe('exec', () => {
       )
 
       cwds.forEach((_cwd) =>
-        expect(fakeCpSync).toHaveBeenCalledWith('npx', ['npm-upgrade', ...argv], {
+        expect(fakeCpSync).toHaveBeenCalledWith(cmd, ['npm-upgrade', ...argv], {
           cwd: _cwd,
           stdio,
         }),
@@ -118,7 +119,7 @@ describe('exec', () => {
       expect(fakeCpSync).toHaveBeenCalledWith(cmd, ['npm-upgrade', 'foo'], { cwd, stdio })
 
       expect(invokeUpdate('foo', ['baz'])).toBe('some result')
-      expect(fakeCpSync).toHaveBeenCalledWith('npx', ['npm-upgrade', 'baz'], {
+      expect(fakeCpSync).toHaveBeenCalledWith(cmd, ['npm-upgrade', 'baz'], {
         cwd: 'foo',
         stdio,
       })
