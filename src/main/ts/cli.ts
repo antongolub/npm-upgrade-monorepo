@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-import minimist from 'minimist'
 import process from 'node:process'
+
+import minimist from 'minimist'
 
 import { TFlags, upgrade } from './upgrade'
 

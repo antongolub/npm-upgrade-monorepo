@@ -1,7 +1,7 @@
 {
   "testEnvironment": "node",
   "transform": {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.tsx?$": ["ts-jest", { "tsconfig": "<rootDir>/tsconfig.test.json"}],
     "^.+\\.jsx?$": "@swissquote/crafty-preset-jest/src/esm-transformer"
   },
   "collectCoverage": true,
@@ -24,11 +24,5 @@
     "jsx",
     "json",
     "node"
-  ],
-  "globals": {
-    "ts-jest": {
-      "tsconfig": "<rootDir>/tsconfig.test.json"
-    }
-  }
-
+  ]
 }
