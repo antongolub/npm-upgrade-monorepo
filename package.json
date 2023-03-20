@@ -68,7 +68,7 @@
     "mkdirp": "^1.0.4",
     "prettier": "^2.7.1",
     "prettier-config-qiwi": "^1.7.2",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.0.0",
     "terser": "^5.15.0",
     "ts-jest": "^29.0.2",
     "tsc-esm-fix": "^2.20.4",
