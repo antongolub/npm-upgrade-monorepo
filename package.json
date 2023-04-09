@@ -65,7 +65,7 @@
     "eslint-config-qiwi": "^1.17.6",
     "jest": "^29.0.3",
     "microbundle": "^0.15.1",
-    "mkdirp": "^1.0.4",
+    "mkdirp": "^3.0.0",
     "prettier": "^2.7.1",
     "prettier-config-qiwi": "^1.7.2",
     "rimraf": "^3.0.2",
