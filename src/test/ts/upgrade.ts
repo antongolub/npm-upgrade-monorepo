@@ -115,7 +115,7 @@ describe('exec', () => {
 
   describe('invoke()', () => {
     it('runs `npm-upgrade` cp with proper args', () => {
-      expect(invokeUpdate(cwd, ['foo'])).toBe('some result')
+      expect(invokeUpdate(cwd, ['foo', '-w', 'packages/*'])).toBe('some result')
       expect(fakeCpSync).toHaveBeenCalledWith(cmd, ['npm-upgrade', 'foo'], { cwd, stdio })
 
       expect(invokeUpdate('foo', ['baz'])).toBe('some result')
