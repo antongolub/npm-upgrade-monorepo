@@ -13,7 +13,7 @@ export const invokeUpdate = (
   const isWin = ['win32' || 'win64'].includes(process.platform)
   const stdio: StdioOptions = ['inherit', 'inherit', 'inherit']
   const cmd = isWin ? 'npx.cmd' : 'npx'
-  const result = cp.spawnSync(cmd, ['npm-upgrade', ...args], { cwd: normalize(cwd), stdio })
+  const result = cp.spawnSync(cmd, ['npm-upgrade', ...filterArgs(args)], { cwd: normalize(cwd), stdio })
 
   if (result.error || result.status || result.signal !== null) {
     throw result
@@ -80,6 +80,17 @@ export const getWorkspaces = (cwd: string, ws?: TWorkspaces): string[] => {
       : extractWorkspacesFromPkg(readPkg(cwd))
 
   return resolveWorkspaces(cwd, pattern)
+}
+
+// We need to prevent `-w/--workspaces` flags passing to internal npm-upgrade call
+export const filterArgs = (args: string[]): string[] => {
+  const ownflags = ['-w', '--workspace']
+  return args.reduce<string[]>((m, a, i) => {
+    if (!ownflags.includes(a) && !ownflags.includes(args[i - 1])) {
+      m.push(a)
+    }
+    return m
+  }, [])
 }
 
 export const upgrade = (cwd: string, flags: TFlags): void => {
