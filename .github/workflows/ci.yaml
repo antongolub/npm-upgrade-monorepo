@@ -3,23 +3,8 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  # Handle [skip ci] / [ci skip] directives in commit messages
-  init:
-    name: init
-    runs-on: ubuntu-22.04
-    outputs:
-      skip: ${{ steps.ci-skip-step.outputs.ci-skip }}
-      skip-not: ${{ steps.ci-skip-step.outputs.ci-skip-not }}
-    steps:
-      - name: Checkuout
-        uses: actions/checkout@v3
-
-      - id: ci-skip-step
-        uses: mstachniuk/ci-skip@v1
-
   build:
     name: build
-    needs: init
     runs-on: ubuntu-22.04
     steps:
       - name: Checkuout
@@ -89,7 +74,7 @@ jobs:
     strategy:
       matrix:
         os: [ windows-2019, ubuntu-22.04 ]
-        node-version: [ 14, 18 ]
+        node-version: [ 14, 18, 20 ]
 
     name: Test (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -154,21 +139,14 @@ jobs:
           coverageLocations: |
             ${{ github.workspace }}/coverage/lcov.info:lcov
 
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ${{ github.workspace }}/coverage/lcov.info
-
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v3
-        with:
-          extends: |
-            @qiwi/semrel-config
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GIT_AUTHOR_EMAIL: 'mailbox@antongolub.ru'
-          GIT_COMMITTER_EMAIL: 'mailbox@antongolub.ru'
+          # NPM_PROVENANCE: true
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_AUTHOR_EMAIL: 'antongolub@antongolub.ru'
+          GIT_COMMITTER_EMAIL: 'antongolub@antongolub.ru'
           GIT_AUTHOR_NAME: 'Anton Golub'
           GIT_COMMITTER_NAME: 'Anton Golub'
+        run: npm_config_yes=true npx zx-semrel
+
