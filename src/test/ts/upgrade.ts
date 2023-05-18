@@ -1,6 +1,6 @@
-import cp from 'child_process'
+import cp from 'node:child_process'
+import path from 'node:path'
 import normalize from 'normalize-path'
-import path from 'path'
 
 import {
   extractWorkspacesFromPkg,
@@ -62,7 +62,7 @@ describe('exec', () => {
         stdout: Buffer.from(stdout),
         stderr: Buffer.from(''),
         output: [],
-        status: parseInt(status),
+        status: Number.parseInt(status),
         signal: null, // eslint-disable-line
         pid: process.pid,
       }
