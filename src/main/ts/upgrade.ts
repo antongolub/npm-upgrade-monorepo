@@ -52,7 +52,9 @@ export const resolveWorkspaces = (
         if (stat.isDirectory()) {
           m[entry] = true
         }
-      } catch {}
+      } catch (e) {
+        console.warn(e)
+      }
 
       return m
     }, {}),
@@ -84,9 +86,9 @@ export const getWorkspaces = (cwd: string, ws?: TWorkspaces): string[] => {
 
 // We need to prevent `-w/--workspaces` flags passing to internal npm-upgrade call
 export const filterArgs = (args: string[]): string[] => {
-  const ownflags = ['-w', '--workspace']
+  const ownflags = new Set(['-w', '--workspace'])
   return args.reduce<string[]>((m, a, i) => {
-    if (!ownflags.includes(a) && !ownflags.includes(args[i - 1])) {
+    if (!ownflags.has(a) && !ownflags.has(args[i - 1])) {
       m.push(a)
     }
     return m
