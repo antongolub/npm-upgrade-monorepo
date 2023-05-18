@@ -112,11 +112,16 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-22.04
     needs: test_push
+    permissions:
+      checks: read
+      statuses: write
+      contents: write
+      packages: write
+      id-token: write
     steps:
       - name: Checkuout
         uses: actions/checkout@v3
         with:
-          persist-credentials: false
           fetch-depth: 0
 
       - name: Restore artifact
@@ -143,7 +148,8 @@ jobs:
       - name: Semantic Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # NPM_PROVENANCE: true
+          NPM_PROVENANCE: true
+          GH_USER: '@antongolub'
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_AUTHOR_EMAIL: 'antongolub@antongolub.ru'
           GIT_COMMITTER_EMAIL: 'antongolub@antongolub.ru'
