@@ -1,3 +1,9 @@
+## [1.2.6](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.5...v1.2.6) (2023-05-18)
+
+### Fixes & improvements
+* perf: up deps ([505e42d](https://github.com/antongolub/npm-upgrade-monorepo/commit/505e42d31a385255cd716ff146af6e6c787daf88))
+* fix: remove -w/--workspaces cli flags before passing argv to internal call ([1945be7](https://github.com/antongolub/npm-upgrade-monorepo/commit/1945be730d7325d94abd5e288245b548ed84c155))
+
 ## [1.2.5](https://github.com/antongolub/npm-upgrade-monorepo/compare/v1.2.4...v1.2.5) (2022-09-25)
 
 
