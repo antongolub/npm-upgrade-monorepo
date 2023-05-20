@@ -7,7 +7,7 @@ jobs:
     name: build
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkuout
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Setup NodeJS
@@ -39,7 +39,7 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkuout
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Restore artifact
@@ -81,7 +81,7 @@ jobs:
     needs: build
 
     steps:
-      - name: Checkuout
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Restore artifact
@@ -119,7 +119,7 @@ jobs:
       packages: write
       id-token: write
     steps:
-      - name: Checkuout
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
