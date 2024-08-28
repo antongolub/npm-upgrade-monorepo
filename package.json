@@ -72,7 +72,7 @@
     "terser": "^5.17.4",
     "ts-jest": "^29.1.0",
     "tsc-esm-fix": "^2.20.14",
-    "typedoc": "^0.24.7",
+    "typedoc": "^0.26.0",
     "typescript": "5.0.4"
   },
   "repository": {
