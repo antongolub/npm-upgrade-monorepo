@@ -59,7 +59,7 @@
     "@swissquote/crafty-preset-jest": "^1.22.3",
     "@types/jest": "^29.5.1",
     "@types/node": "^20.2.1",
-    "cpy-cli": "^4.2.0",
+    "cpy-cli": "^5.0.0",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-qiwi": "^2.1.3",
